@@ -67,3 +67,19 @@ a{
     z-index: -1;
 
 }
+footer{
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    color: white;
+}
+.modal#blog{
+    margin: auto;
+    margin-top: 20px;
+    width: 63%;
+}
+date{
+    color: gray;
+    white-space: pre;
+}
