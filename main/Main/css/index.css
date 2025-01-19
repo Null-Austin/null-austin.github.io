@@ -59,7 +59,8 @@ a{
     width: 890px;
     height: 40px;
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     position: absolute;
+    z-index: -1;
 
 }
