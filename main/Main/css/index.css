@@ -1,44 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap');
+
+:root {
     --highlighter: #202020;
 }
+
 * {
-    font-family: "Nunito", serif;
+    font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 337;
+    font-weight: 400;
     font-style: normal;
-  }
-  
+}
+
 html {
     width: 100%;
     height: 100%;
 }
+
 body {
-    background-color: rgb(0,162,232);
+    background-color: #007acc; /* Softer blue */
     margin: 0;
     padding: 0;
 }
+
 .modal {
     background-color: #2c2c2c;
-    color: #f5f5f5 ;
+    color: #f5f5f5;
     padding: 20px;
     width: 250px;
     height: 560px;
 }
+
 #modals {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
     gap: 10px;
     position: relative;
 }
-a{
+
+a {
     display: inline;
     background: var(--highlighter);
     color: var(--highlighter);
     box-shadow: 55em 0 0 var(--highlighter), .0em 0 0 var(--highlighter);
     color: white;
 }
-#main-content{
+
+#main-content {
     background-color: black;
     color: white;
     padding: 20px;
@@ -48,42 +55,45 @@ a{
     border-radius: 2px;
     padding-top: 20px;
 }
-.ribbon1{
-    background-color: #d32f2f ;
+
+.ribbon1 {
+    background-color: #b71c1c; /* Softer red */
     width: 290px;
     height: 40px;
     position: absolute;
     transform: translateX(-20px);
     bottom: 20px;
-    position: absolute;
 }
-.ribbon2{
-    background-color: rgb(150, 0, 0);
+
+.ribbon2 {
+    background-color: #8b0000; /* Darker red */
     width: 890px;
     height: 40px;
     position: absolute;
     bottom: 15px;
-    position: absolute;
     z-index: -1;
-
 }
-footer{
+
+footer {
     text-align: center;
     position: relative;
     width: 100%;
     bottom: 0;
     color: white;
 }
-.modal#blog{
+
+.modal#blog {
     margin: auto;
     margin-top: 20px;
     width: 63%;
 }
-date{
+
+date {
     color: gray;
     white-space: pre;
 }
-#blogribbon{
+
+#blogribbon {
     bottom: -500px;
-    width: 66%
+    width: 65.9%;
 }
