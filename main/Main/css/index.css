@@ -83,3 +83,7 @@ date{
     color: gray;
     white-space: pre;
 }
+#blogribbon{
+    bottom: -500px;
+    width: 66%
+}
