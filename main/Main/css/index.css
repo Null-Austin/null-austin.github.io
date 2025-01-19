@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+:root{
+    --highlighter: #202020;
+}
 * {
     font-family: "Nunito", serif;
     font-optical-sizing: auto;
@@ -30,9 +33,9 @@ body {
 }
 a{
     display: inline;
-    background: #303030;
-    color: #333333;
-    box-shadow: .25em 0 0 #303030, -.25em 0 0 #303030;
+    background: var(--highlighter);
+    color: var(--highlighter);
+    box-shadow: 55em 0 0 var(--highlighter), .0em 0 0 var(--highlighter);
     color: white;
 }
 #main-content{

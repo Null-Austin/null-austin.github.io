@@ -9,6 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
             'title': 'Quick VSCODE',
             'Desc': 'A quick way to load up VSCODE',
             'Link': 'https://chromewebstore.google.com/detail/quick-vscode/mcppolgkeojkenmalifhoabdlpjbkfko'
+        },
+        'Dice': {
+            'title': 'Dice',
+            'Desc': 'A weirdly complicated rng game made with python',
+            'Link': 'https://github.com/Null-Austin/Dice'
+        },
+        'Chess.com reporter': {
+            'title': 'Chess.com reporting system',
+            'Desc': 'report any chess.com user, but doesnt get them banned or does nothing, meant to be more of connected to an exstention',
+            'Link': 'https://github.com/Null-Austin/Chess.com-reporting-system'
+        },
+        'Chess.com image stats': {
+            'title': 'Chess account stats to image',
+            'Desc': 'Converts your chess.com stats into a photo! for example: github.',
+            'Link': 'https://github.com/Null-Austin/chess-to-image'
         }
     };
 
