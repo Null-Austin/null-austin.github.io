@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Noto+Sans+JP:wght@100..900&family=Nunito:wght@274&family=Playwrite+IN:wght@100..400&display=swap');
+:root{
+    --cerise: #CA3856ff;
+    --blue-violet: #9341C7ff;
+    --saffron: #E4C145ff;
+    --jet: #37373Aff;
+    --raisin-black: #242529ff;
+
+}
+*{
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 428;
+    font-style: normal;
+}
+.elijah{
+    font-family: "Playwrite IN", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+#modal{
+    background-color: var(--jet);
+    padding: 20px;
+    width: 55%;
+    margin: auto;
+    border: 3px black solid ;
+    border-radius: 10px;
+}
+body{
+    background-color: var(--raisin-black);
+    backdrop-filter: blur(20px);
+}
+*{
+    color: white;
+}
+h1{
+    text-align: center;
+}
+small{
+    text-align: center;
+    color:var(--saffron);
+    font-size: 15px;
+}
