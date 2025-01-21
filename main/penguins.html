@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguins</title>
+</head>
+<body>
+    <div id="modal">
+        <h1>Penguins!</h1>
+        <p>Some facts!:</p>
+        <ol>
+            <li>A penguins black back, tends to help them blend in with the dark of the sea, avoiding predators from seeing them, their bellies look like the bright surface of the sea from under!</li>
+            <li>Penguins grouping relates to them heating eachother up and protection!</li>
+            <li>Most birds have hollowed bones to keep them light, penguins have solid heavy bones, to not float :(</li>
+        </ol>
+    </div>
+    <div id="box"></div>
+</body>
+</html>
+
+<style>
+html,body{
+    height: 100%;
+}
+body{
+    background: linear-gradient(var(--jonquil),var(--fulvous));
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+*{
+    color: var(--parchment);
+}
+h1{
+    text-align: center;
+}
+#modal{
+    background-color: var(--jet);
+    padding: 20px;
+    width: 55%;
+    margin: auto;
+}
+:root{
+    --parchment: #EAE6CCff;
+    --jonquil: rgb(50, 50, 50);
+    --fulvous: rgb(34, 34, 34);
+    --caf-noir: #523D2Bff;
+    --jet: #383530ff;
+}
+#box{
+    width: 58.7%;
+    margin: auto;
+    height: 10%;
+    background-color: var(--fulvous);
+}
+li{
+    color: rgb(98, 137, 137);
+}
+</style>
