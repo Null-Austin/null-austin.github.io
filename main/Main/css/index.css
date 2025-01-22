@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    background-color: #007acc; /* Softer blue */
+    background-color: rgb(0, 162, 232); /* Softer blue */
     margin: 0;
     padding: 0;
 }
