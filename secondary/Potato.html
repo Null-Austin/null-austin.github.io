@@ -4,7 +4,7 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Existential Crisis Potato</title>
+    <title>The *𝙣𝙤𝙧𝙢𝙖𝙡* Potato</title>
 </head>
 <body>
     <div id="container"><img src="https://u.cubeupload.com/Nulla/edLIr7.png" alt="image of the Potato" srcset="" id="potato"></div>
@@ -85,10 +85,10 @@ function __send__() {
     if (keeptalking){
         messages++
         if (deep){
-            _message_(__sus_messages__[Math.floor(Math.random() * __sus_messages__.length)])
+            _message_(__sus_messages__[Math.floor(Math.random() * __sus_messages__.length)].replaceAll('\\n','<br>'))
         }
         else if (!deep){
-            _message_(__messages__[Math.floor(Math.random() * __messages__.length)])
+            _message_(__messages__[Math.floor(Math.random() * __messages__.length)].replaceAll('\\n','<br>'))
         }
     }
 }
@@ -107,12 +107,13 @@ document.addEventListener('keydown',(event) => {
     if (!wait){
         if (event.keyCode == '32'){
             if (!deep){
+                document.title = 'The Existential Crisis Potato'
                 deep = !deep //too lazy to type true :D
             }
             _potato_.classList.add('angy')
             wait = true
             keeptalking = false
-            _message_('im having a existential crises')
+            _message_('im having a existential crises<br><span style="text-decoration: underline;">Deep mode unlocked</span>')
             _potato_.addEventListener('animationend',() => {
                 wait = false
                 _potato_.classList.remove('angy')
