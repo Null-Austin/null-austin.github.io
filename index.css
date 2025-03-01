@@ -2,13 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Shafarik&display=swap');
 
-*{
-    font-family: "Noto Sans JP", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
 body,html{
     height: 100%;
     padding: 0px;
@@ -53,6 +46,10 @@ body{
     p{
         font-size: 17px;
     }
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 small{
     font-size: 10px;
