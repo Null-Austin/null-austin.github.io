@@ -1,2 +1,90 @@
-<h1>To come soon!</h1>
-<h2>"The lack of css is intentional" ~ Zrl</h2>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AustinSDK</title>
+    <script src="https://cdn.jsdelivr.net/npm/tuicss@latest/dist/tuicss.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tuicss@latest/dist/tuicss.min.css"
+    />
+    <style>
+      body {
+        background-color: black;
+      }
+      #page2 > button {
+        margin: 2px;
+        margin-inline: 8px;
+      }
+      #page2 {
+        display: none;
+      }
+
+      html, body, .tui-screen-800-600{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="tui-screen-800-600 centered bordered blue-168"
+      style="padding: 40px"
+    >
+      <div class="center center-align valign-middle">
+        <div class="tui-panel white-255" style="padding-bottom: 20px">
+          <div class="tui-panel-header red-255 white-255-text" style="margin-bottom: 20px">
+            Austin's Source Development Kit
+          </div>
+
+          <div id="page1">
+            <p class="black-text">
+              This is a amazing website, or tui..? Where you can find all of your
+              desires!
+            </p>
+            <button class="tui-button info white-text" id="continue">Continue...</button>
+          </div>
+          <div id="page2">
+            <p class="black-text">
+              A couple pages, you might want to take a peak at can be located below!
+            </p>
+
+            <p class="white-168-text"><b>Branded websites</b></p>
+            <button class="tui-button info white-text" data-url="https://austinsdk.me">AustinSDK's Homepage</button>
+
+            <p class="white-168-text"><b>Personal websites</b></p>
+            <button class="tui-button info white-text" data-url="https://null-austin.me">Null-Austin.me</button>
+            <button class="tui-button info white-text" data-url="https://da-greatest.mom">DaGreatest.Mom</button>
+            <button class="tui-button info white-text" data-url="https://fonts.da-greatest.mom">Fontly..?</button>
+            <button class="tui-button info white-text" data-url="https://MyCodeBaseIsBrokenAndIDontKnowWhatToDoOtherThenToSayILoveCss.Codes">MyCodeBaseIsBrokenAndIDontKnowWhatToDoOtherThenToSayILoveCss.Codes</button>
+            <button class="tui-button info white-text" data-url="https://JustCuteCats.Tech">JustCuteCats.Tech</button>
+
+            <p class="white-168-text"><b>Friend websites</b></p>
+            <button class="tui-button info white-text" data-url="https://www.goatmessi.tech/">GoatMESSI.Tech</button>
+            <button class="tui-button info white-text" data-url="https://aidan-the-swordsman.tech/">aidan-the-swordsman.tech</button>
+            <button class="tui-button info white-text" data-url="https://hayden-is-a-cool-gamer-but-i-dont-have-proof-on-why-he-is.tech/">hayden-is-a-cool-gamer-but-i-dont-have-proof-on-why-he-is.tech</button>
+
+            <p class="white-168-text"><b>Collaborator websites</b></p>
+            <button class="tui-button info white-text" data-url="https://nolife.uk">NoLife.uk</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("continue").addEventListener("click", () => {
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("page2").style.display = "block";
+      });
+
+      document.querySelectorAll("#page2 > button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          window.location.href = btn.dataset.url;
+        });
+      });
+    </script>
+  </body>
+</html>
