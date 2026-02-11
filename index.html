@@ -82,7 +82,7 @@
 
       document.querySelectorAll("#page2 > button").forEach((btn) => {
         btn.addEventListener("click", () => {
-          window.location.href = btn.dataset.url;
+          window.open(btn.dataset.url, "_blank");
         });
       });
     </script>
