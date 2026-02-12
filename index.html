@@ -13,11 +13,15 @@
       body {
         background-color: black;
       }
-      #page2 > button {
+      #page2 > button,
+      #page3 > button {
         margin: 2px;
         margin-inline: 8px;
       }
       #page2 {
+        display: none;
+      }
+      #page3{
         display: none;
       }
 
@@ -47,7 +51,7 @@
               <br>
               Oh, btw this website is in the <a href="license.txt" class="blue-168-text">public domain</a>
             </p>
-            <button class="tui-button info white-text" id="continue">Continue...</button>
+            <button class="tui-button blue-168 white-text" id="continue">Continue...</button>
           </div>
           <div id="page2">
             <p class="black-text">
@@ -71,6 +75,15 @@
 
             <p class="white-168-text"><b>Collaborator websites</b></p>
             <button class="tui-button info white-text" data-url="https://nolife.uk">NoLife.uk</button>
+
+            <p class="white-168-text"><b>Continue</b></p>
+            <button class="tui-button blue-168 white-text" id="continue2">Continue...</button>
+          </div>
+
+          <div id="page3">
+            <p class="white-168-text"><b>Miscellaneous websites</b></p>
+            <button class="tui-button info white-text" data-url="/short/numbers-tui">Numbers TUI</button>
+            <button class="tui-button info white-text" data-url="/the-cube">The Cube</button>
           </div>
         </div>
       </div>
@@ -81,11 +94,17 @@
         document.getElementById("page1").style.display = "none";
         document.getElementById("page2").style.display = "block";
       });
+      document.getElementById("continue2").addEventListener("click", () => {
+        document.getElementById("page2").style.display = "none";
+        document.getElementById("page3").style.display = "block";
+      });
 
-      document.querySelectorAll("#page2 > button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          window.open(btn.dataset.url, "_blank");
-        });
+      document.querySelectorAll("#page2 > button, #page3 > button").forEach((btn) => {
+        if (btn.id !== "continue2"){
+          btn.addEventListener("click", () => {
+            window.open(btn.dataset.url, "_blank");
+          });
+        }
       });
     </script>
   </body>
