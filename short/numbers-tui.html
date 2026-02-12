@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Numbers</title>
+  <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/tuicss@latest/dist/tuicss.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tuicss@latest/dist/tuicss.min.css">
 </head>
 <body>
   <div class="tui-screen-800-600 bordered blue-168 center">
-    <div class="tui-window white center valign-middle" style="margin: 10px;">
+    <div class="tui-window white" style="margin: 10px; text-align: left;">
       <div class="tui-panel-header orange-168" style="padding: 10px;">Ooooh, some random numbers..?</div>
-      <div class="tui-panel-content black-text" id="random_d" style="overflow: auto;"></div>
+      <div class="tui-panel-content black-text" id="random_d" style="overflow: auto; white-space: pre;"></div>
+      <div class="tui-panel-content black-168-text" style="font-size: 10px; text-align: right;"><b>(Made with love from <a class="blue-168-text" href="https://github.com/vinibiavatti1/TuiCss">TuiCss</a> and <a class="blue-168-text" href="https://github.com/null-austin">Null-Austin</a>)</b></div>
     </div>
   </div>
 </body>
@@ -19,32 +20,112 @@
 
 <script>
   let random_d = document.querySelector("#random_d");
+  let grid = [];
+  const COLS = 50;
+  const ROWS = 23;
   
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+
   function randomNumber(){
     return Math.floor(Math.random() * 10);
   }
-  (async ()=>{
-    for (let i = 0; i < 23; i++){
-      for (let i = 0; i < 50; i++){
-        random_d.innerHTML+=randomNumber()
-        await sleep(10) // temp, set to 10ms
+
+  function getWeightedNumber(last_numbers) {
+    if (Math.random() < 0.5 && last_numbers.length > 0) {
+      const weights = [0.5, 0.25, 0.125, 0.0625, 0.0625];
+      let rand = Math.random();
+      let cumulative = 0;
+      
+      for (let i = 0; i < Math.min(last_numbers.length, weights.length); i++) {
+        cumulative += weights[i];
+        if (rand < cumulative) {
+          return last_numbers[last_numbers.length - 1 - i];
+        }
       }
-      random_d.innerHTML += "<br>"
+      return last_numbers[0];
+    }
+    return randomNumber();
+  }
+
+  function add(x, last_numbers){
+    last_numbers.push(x);
+    if (last_numbers.length > 5) last_numbers.shift();
+  }
+
+  function renderGrid() {
+    random_d.innerHTML = grid.map(row => row.join("")).join("\n");
+  }
+
+  let last_numbers = [];
+
+  (async () => {
+    // Initialize grid
+    for (let i = 0; i < ROWS; i++) {
+      grid[i] = new Array(COLS).fill("");
     }
 
-    while(true){
-      let chars = String(random_d.innerHTML).split("")
-      for (let i = 0; i<chars.length; i++){
-        if (!isNaN(chars[i])){
-          chars[i] = randomNumber();
+    // Initial fill - diagonal from top-left to bottom-right
+    for (let diagonal = 0; diagonal < ROWS + COLS - 1; diagonal++) {
+      for (let row = 0; row < ROWS; row++) {
+        let col = diagonal - row;
+        if (col >= 0 && col < COLS) {
+          let n = randomNumber();
+          grid[row][col] = n;
+          add(n, last_numbers);
         }
-        random_d.innerHTML = chars.join("");
       }
-      await sleep(10)
+      renderGrid();
+      await sleep(10);
     }
-  })()
+
+    // Continuous update - fill from corners diagonally inward
+    while(true){
+      let chars = [];
+      
+      // Create list of all positions
+      for (let row = 0; row < ROWS; row++) {
+        for (let col = 0; col < COLS; col++) {
+          chars.push({row, col});
+        }
+      }
+
+      // Sort by distance from nearest corner
+      chars.sort((a, b) => {
+        const distA = Math.min(
+          a.row + a.col,
+          a.row + (COLS - 1 - a.col),
+          (ROWS - 1 - a.row) + a.col,
+          (ROWS - 1 - a.row) + (COLS - 1 - a.col)
+        );
+        const distB = Math.min(
+          b.row + b.col,
+          b.row + (COLS - 1 - b.col),
+          (ROWS - 1 - b.row) + b.col,
+          (ROWS - 1 - b.row) + (COLS - 1 - b.col)
+        );
+        return distA - distB;
+      });
+
+      // Update all positions in batches
+      for (let i = 0; i < chars.length; i += 10) {
+        for (let j = i; j < Math.min(i + 10, chars.length); j++) {
+          grid[chars[j].row][chars[j].col] = getWeightedNumber(last_numbers);
+        }
+        renderGrid();
+        await sleep(1);
+      }
+    }
+  })();
 
 </script>
+
+<style>
+  body,html,.tui-screen-800-600{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
