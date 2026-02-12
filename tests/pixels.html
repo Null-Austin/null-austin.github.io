@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container"></div>
+  <img src="https://static.vecteezy.com/system/resources/thumbnails/045/806/718/small/print-test-cmyk-calibration-illustration-with-color-test-for-cyan-magenta-yellow-black-and-many-colors-vector.jpg" alt="" srcset="">
+</body>
+</html>
+
+<script>
+  let img = document.querySelector("img");
+  img.crossOrigin = "anonymous";
+  img.addEventListener("load",e=>{
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    const pixelSize = 5;
+    const width = Math.floor(img.width / pixelSize);
+    const height = Math.floor(img.height / pixelSize);
+
+    canvas.width = width;
+    canvas.height = height;
+
+    ctx.drawImage(img, 0, 0, width, height);
+
+    const imageData = ctx.getImageData(0, 0, width, height);
+    const data = imageData.data
+
+    const container = document.querySelector("div.container")
+    container.style.display = 'grid';
+    container.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
+    container.style.gap = '0px';
+    container.style.fontSize = "7px"
+
+  for (let i = 0; i < data.length; i += 4) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+    const a = data[i + 3];
+    
+    const pixelDiv = document.createElement('div');
+    pixelDiv.style.width = '10px';
+    pixelDiv.style.height = '10px';
+    pixelDiv.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a / 255})`;
+    
+    container.appendChild(pixelDiv);
+  }
+  })
+</script>
+
+<style>
+  .container{
+    border: 2px black solid;
+  }
+</style>
