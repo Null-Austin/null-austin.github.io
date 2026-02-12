@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numbers</title>
+  <script src="https://cdn.jsdelivr.net/npm/tuicss@latest/dist/tuicss.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tuicss@latest/dist/tuicss.min.css">
+</head>
+<body>
+  <div class="tui-screen-800-600 bordered blue-168 center">
+    <div class="tui-window white center valign-middle" style="margin: 10px;">
+      <div class="tui-panel-header orange-168" style="padding: 10px;">Ooooh, some random numbers..?</div>
+      <div class="tui-panel-content black-text" id="random_d" style="overflow: auto;"></div>
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+  let random_d = document.querySelector("#random_d");
+  
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  function randomNumber(){
+    return Math.floor(Math.random() * 10);
+  }
+  (async ()=>{
+    for (let i = 0; i < 23; i++){
+      for (let i = 0; i < 50; i++){
+        random_d.innerHTML+=randomNumber()
+        await sleep(10) // temp, set to 10ms
+      }
+      random_d.innerHTML += "<br>"
+    }
+
+    while(true){
+      let chars = String(random_d.innerHTML).split("")
+      for (let i = 0; i<chars.length; i++){
+        if (!isNaN(chars[i])){
+          chars[i] = randomNumber();
+        }
+        random_d.innerHTML = chars.join("");
+      }
+      await sleep(10)
+    }
+  })()
+
+</script>
